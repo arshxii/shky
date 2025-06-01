@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arsh.lol</title>
+  <style>
+    :root {
+      --bg: #000;
+      --fg: #0f0;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: monospace;
+      background-color: var(--bg);
+      color: var(--fg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      transition: background-color 0.5s ease, color 0.5s ease;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin: 20px 0 10px;
+    }
+
+    .typing {
+      font-size: 1.2em;
+      height: 30px;
+      margin-top: 10px;
+      white-space: nowrap;
+      border-right: 2px solid var(--fg);
+      overflow: hidden;
+      animation: typing 4s steps(30, end), blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--fg);
+      margin-top: 30px;
+      transition: border-color 0.5s ease;
+    }
+
+    a, .static {
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 1.2em;
+      margin: 10px 0;
+      display: block;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #0c0;
+    }
+
+    .links {
+      max-width: 90%;
+      width: 400px;
+      margin-top: 30px;
+    }
+
+    .toggle-btn, .mute-btn {
+      position: absolute;
+      top: 20px;
+      background: none;
+      border: 1px solid var(--fg);
+      color: var(--fg);
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: monospace;
+      transition: all 0.4s ease;
+    }
+
+    .toggle-btn:hover, .mute-btn:hover {
+      background-color: var(--fg);
+      color: var(--bg);
+    }
+
+    .toggle-btn {
+      right: 20px;
+    }
+
+    .mute-btn {
+      left: 20px;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.8em;
+      color: var(--fg);
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      a, .static {
+        font-size: 1em;
+      }
+
+      .typing {
+        font-size: 1em;
+      }
+    }
+
+    /* Light mode */
+    body.light {
+      --bg: #fefefe;
+      --fg: #222;
+    }
+  </style>
+</head>
+<body>
+  <!-- Dark/Light Toggle -->
+  <button class="toggle-btn" onclick="toggleTheme()">☀️/🌙</button>
+
+  <!-- Mute/Unmute Button -->
+  <button class="mute-btn" onclick="toggleMute()">🔊</button>
+
+  <!-- Profile Pic -->
+  <img class="profile-pic" src="https://th.bing.com/th/id/OIP.C5iEnU9dg1EDvb8N-KRBngHaHa?rs=1&pid=ImgDetMain" alt="Arsh Profile Picture">
+
+  <!-- Heading + Typing -->
+  <h1>Arsh.lol</h1>
+  <div class="typing">Welcome to my world...</div>
+
+  <!-- Links -->
+  <div class="links">
+    <a href="https://www.instagram.com/shky.asf?igsh=am0yMmx4bHI5N2xw" target="_blank">📸 Instagram</a>
+    <a href="https://www.youtube.com/@ShkyXcel" target="_blank">📺 YouTube</a>
+    <a href="https://twitch.tv/ii4rsh" target="_blank">🎮 Twitch</a>
+    <div class="static">👻 Snapchat: <strong>Arsh.S007</strong></div>
+    <div class="static">💬 Discord: <strong>Axownsyou.</strong></div>
+    <div class="static">🎵 TikTok: <strong>scxpe.rip</strong></div>
+  </div>
+
+  <footer>
+    made with ✨ by Arsh
+  </footer>
+
+  <!-- Background Music -->
+  <audio id="bgm" autoplay loop>
+    <source src="https://media.vocaroo.com/mp3/1lb47m8yeA3V" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
+
+  <!-- Scripts -->
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("light");
+    }
+
+    function toggleMute() {
+      const audio = document.getElementById("bgm");
+      const btn = document.querySelector(".mute-btn");
+      if (audio.muted) {
+        audio.muted = false;
+        btn.textContent = "🔊";
+      } else {
+        audio.muted = true;
+        btn.textContent = "🔇";
+      }
+    }
+  </script>
+</body>
+</html>
