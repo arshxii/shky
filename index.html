@@ -3,42 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Arsh.lol</title>
+  <title>Arsh | Links</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #000;
-      --fg: #0f0;
-    }
-
     body {
       margin: 0;
-      padding: 0;
-      font-family: monospace;
-      background-color: var(--bg);
-      color: var(--fg);
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #2b2b2b, #000000);
+      color: #fff;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
-      text-align: center;
-      transition: background-color 0.5s ease, color 0.5s ease;
-      overflow-x: hidden;
+      overflow: hidden;
     }
 
-    h1 {
-      font-size: 2.5em;
-      margin: 20px 0 10px;
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      object-fit: cover;
+      margin-bottom: 20px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.2);
     }
 
     .typing {
-      font-size: 1.2em;
-      height: 30px;
-      margin-top: 10px;
+      font-size: 2em;
       white-space: nowrap;
-      border-right: 2px solid var(--fg);
       overflow: hidden;
-      animation: typing 4s steps(30, end), blink 0.75s step-end infinite;
+      border-right: .15em solid white;
+      animation: typing 3s steps(30, end), blink .75s step-end infinite;
+      margin-bottom: 30px;
     }
 
     @keyframes typing {
@@ -47,143 +44,77 @@
     }
 
     @keyframes blink {
-      50% { border-color: transparent; }
-    }
-
-    .profile-pic {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--fg);
-      margin-top: 30px;
-      transition: border-color 0.5s ease;
-    }
-
-    a, .static {
-      color: var(--fg);
-      text-decoration: none;
-      font-size: 1.2em;
-      margin: 10px 0;
-      display: block;
-      transition: color 0.3s ease;
-    }
-
-    a:hover {
-      color: #0c0;
+      50% { border-color: transparent }
     }
 
     .links {
-      max-width: 90%;
-      width: 400px;
-      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
     }
 
-    .toggle-btn, .mute-btn {
-      position: absolute;
-      top: 20px;
-      background: none;
-      border: 1px solid var(--fg);
-      color: var(--fg);
-      padding: 6px 12px;
-      border-radius: 6px;
+    .link-btn {
+      padding: 12px 25px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid #888;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 12px;
+      font-size: 1em;
+      transition: transform 0.3s ease, background 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .link-btn:hover {
+      transform: scale(1.05);
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    #mute-btn {
+      margin-top: 20px;
+      background-color: transparent;
+      color: white;
+      border: 1px solid #888;
+      padding: 8px 18px;
+      border-radius: 8px;
       cursor: pointer;
-      font-family: monospace;
-      transition: all 0.4s ease;
+      transition: background 0.3s;
     }
 
-    .toggle-btn:hover, .mute-btn:hover {
-      background-color: var(--fg);
-      color: var(--bg);
+    #mute-btn:hover {
+      background-color: rgba(255, 255, 255, 0.15);
     }
 
-    .toggle-btn {
-      right: 20px;
-    }
-
-    .mute-btn {
-      left: 20px;
-    }
-
-    footer {
-      position: absolute;
-      bottom: 10px;
-      font-size: 0.8em;
-      color: var(--fg);
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2em;
-      }
-
-      a, .static {
-        font-size: 1em;
-      }
-
-      .typing {
-        font-size: 1em;
-      }
-    }
-
-    /* Light mode */
-    body.light {
-      --bg: #fefefe;
-      --fg: #222;
+    audio {
+      display: none;
     }
   </style>
 </head>
 <body>
-  <!-- Dark/Light Toggle -->
-  <button class="toggle-btn" onclick="toggleTheme()">☀️/🌙</button>
+  <img class="profile-pic" src="https://th.bing.com/th/id/OIP.C5iEnU9dg1EDvb8N-KRBngHaHa?rs=1&pid=ImgDetMain" alt="Profile Picture"/>
 
-  <!-- Mute/Unmute Button -->
-  <button class="mute-btn" onclick="toggleMute()">🔊</button>
+  <div class="typing">Welcome to Arsh's Links</div>
 
-  <!-- Profile Pic -->
-  <img class="profile-pic" src="https://th.bing.com/th/id/OIP.C5iEnU9dg1EDvb8N-KRBngHaHa?rs=1&pid=ImgDetMain" alt="Arsh Profile Picture">
-
-  <!-- Heading + Typing -->
-  <h1>Arsh.lol</h1>
-  <div class="typing">Welcome to my world...</div>
-
-  <!-- Links -->
   <div class="links">
-    <a href="https://www.instagram.com/shky.asf?igsh=am0yMmx4bHI5N2xw" target="_blank">📸 Instagram</a>
-    <a href="https://www.youtube.com/@ShkyXcel" target="_blank">📺 YouTube</a>
-    <a href="https://twitch.tv/ii4rsh" target="_blank">🎮 Twitch</a>
-    <div class="static">👻 Snapchat: <strong>Arsh.S007</strong></div>
-    <div class="static">💬 Discord: <strong>Axownsyou.</strong></div>
-    <div class="static">🎵 TikTok: <strong>scxpe.rip</strong></div>
+    <a class="link-btn" href="https://www.instagram.com/shky.asf?igsh=am0yMmx4bHI5N2xw" target="_blank">Instagram</a>
+    <a class="link-btn" href="https://www.youtube.com/@ShkyXcel" target="_blank">YouTube</a>
+    <a class="link-btn" href="https://twitch.tv/ii4rsh" target="_blank">Twitch</a>
+    <a class="link-btn" href="#" onclick="alert('Snapchat: Arsh.S007')">Snapchat</a>
+    <a class="link-btn" href="#" onclick="alert('Discord: Axownsyou.')">Discord</a>
+    <a class="link-btn" href="#" onclick="alert('TikTok: scxpe.rip')">TikTok</a>
   </div>
 
-  <footer>
-    made with ✨ by Arsh
-  </footer>
+  <button id="mute-btn">🔊 Mute</button>
 
-  <!-- Background Music -->
-  <audio id="bgm" autoplay loop>
-    <source src="https://media.vocaroo.com/mp3/1lb47m8yeA3V" type="audio/mpeg">
-    Your browser does not support the audio tag.
+  <audio id="bg-music" autoplay loop>
+    <source src="https://media.voicemaker.in/voices/files/2024-06-01/audio.mp3" type="audio/mp3">
+    <!-- This placeholder is your uploaded vocaroo .mp3 hosted elsewhere -->
   </audio>
 
-  <!-- Scripts -->
   <script>
-    function toggleTheme() {
-      document.body.classList.toggle("light");
-    }
+    const audio = document.getElementById("bg-music");
+    const muteBtn = document.getElementById("mute-btn");
+    let muted = false;
 
-    function toggleMute() {
-      const audio = document.getElementById("bgm");
-      const btn = document.querySelector(".mute-btn");
-      if (audio.muted) {
-        audio.muted = false;
-        btn.textContent = "🔊";
-      } else {
-        audio.muted = true;
-        btn.textContent = "🔇";
-      }
-    }
-  </script>
-</body>
-</html>
+    muteBtn.addEvent
